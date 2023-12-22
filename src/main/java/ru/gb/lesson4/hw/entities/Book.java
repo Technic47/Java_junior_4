@@ -1,19 +1,29 @@
-package ru.gb.lesson4.hw;
+package ru.gb.lesson4.hw.entities;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.util.Objects;
 
-
+@Entity
+@Table(name = "books")
 public class Book {
+    @Id
     private long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "author")
     private String author;
 
     public Book(long id, String name, String author) {
         this.id = id;
         this.name = name;
         this.author = author;
+    }
+
+    public Book() {
     }
 
     public long getId() {

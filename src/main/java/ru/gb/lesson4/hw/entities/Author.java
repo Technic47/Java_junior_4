@@ -1,8 +1,8 @@
-package ru.gb.lesson4.hw.jpa;
+package ru.gb.lesson4.hw.entities;
 
 import jakarta.persistence.*;
-import ru.gb.lesson4.hw.Book;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -14,7 +14,7 @@ public class Author {
     @Column(name = "name")
     private String name;
     @OneToMany
-    private Set<JpaBook> books;
+    private Set<JpaBook> books = new HashSet<>();
 
     public Author(String name) {
         this.name = name;
@@ -49,9 +49,18 @@ public class Author {
 
     @Override
     public String toString() {
-        return "Author{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        StringBuilder builder = new StringBuilder();
+        builder.append("Author{")
+                .append("id=").append(id)
+                .append(", name='").append(name)
+                .append(", books: ");
+        books.forEach(b -> builder.append("\n")
+                .append("Id: ")
+                .append(b.getId())
+                .append(", name: ")
+                .append(b.getName()));
+        builder.append("}");
+        return builder.toString();
+
     }
 }

@@ -1,4 +1,4 @@
-package ru.gb.lesson4.hw.jpa;
+package ru.gb.lesson4.hw.entities;
 
 import jakarta.persistence.*;
 
@@ -15,9 +15,8 @@ public class JpaBook {
     @ManyToOne
     private Author author;
 
-    public JpaBook(String name, Author author) {
+    public JpaBook(String name) {
         this.name = name;
-        this.author = author;
     }
 
     public JpaBook() {
@@ -65,7 +64,7 @@ public class JpaBook {
         return "JpaBook{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", author=" + author +
+                ", author=" + author.getName() +
                 '}';
     }
 }

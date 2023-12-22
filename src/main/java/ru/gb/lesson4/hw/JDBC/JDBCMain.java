@@ -1,4 +1,4 @@
-package ru.gb.lesson4.hw;
+package ru.gb.lesson4.hw.JDBC;
 
 import ru.gb.lesson4.hw.entities.Book;
 
@@ -33,7 +33,9 @@ public class JDBCMain {
         dao.save(book9);
         dao.save(book10);
 
-        List<Book> booksByAuthor = dao.getBooksByAuthor("Author3");
+        String author = "Author3";
+        System.out.println("Books with author = '" + author +"':");
+        List<Book> booksByAuthor = dao.getBooksByAuthor(author);
         booksByAuthor.forEach(System.out::println);
     }
 }

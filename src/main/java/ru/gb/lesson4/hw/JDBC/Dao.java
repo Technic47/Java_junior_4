@@ -1,4 +1,4 @@
-package ru.gb.lesson4.hw;
+package ru.gb.lesson4.hw.JDBC;
 
 import ru.gb.lesson4.hw.entities.Book;
 
